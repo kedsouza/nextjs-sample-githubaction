@@ -30,8 +30,7 @@ jobs:
       - name: Zip Up Node Modules
         run: |
           cd node_modules
-          tar -zcvf ../node_modules.tar.gz .
-          #tar -czvf node_modules.tar.gz node_modules
+          tar -zcf ../node_modules.tar.gz .
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
