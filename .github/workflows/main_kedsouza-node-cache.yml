@@ -52,5 +52,6 @@ jobs:
         with:
           app-name: 'kedsouza-node-cache'
           slot-name: 'Production'
+          app-settings-json: '[{ "name": "SCM_DO_BUILD_DURING_DEPLOYMENT", "value": "1", "slotSetting": false }]'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_693AD384F3C3429B853A8DDDBCA19B32 }}
           package: .
