@@ -38,7 +38,7 @@ jobs:
           name: node-app
           path: | 
                 .
-                !./node_modules
+                #!./node_modules
                 
 
   deploy:
