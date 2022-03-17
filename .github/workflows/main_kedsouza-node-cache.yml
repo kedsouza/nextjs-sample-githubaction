@@ -45,13 +45,20 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: node-app
-
+          
+      - name: Azure App Service Settings
+        uses: Azure/appservice-settings@v1
+        with:
+          # Name of the Azure Web App
+          app-name: 'kedsouza-node-cache'
+          # Application settings using the JSON syntax set as value of secret variable: APP_SETTINGS
+          app-settings-json: '[{ "name": "SCM_DO_BUILD_DURING_DEPLOYMENT", "value": "1", "slotSetting": false }]'
+          
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'kedsouza-node-cache'
           slot-name: 'Production'
-          app-settings-json: '[{ "name": "SCM_DO_BUILD_DURING_DEPLOYMENT", "value": "1", "slotSetting": false }]'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_693AD384F3C3429B853A8DDDBCA19B32 }}
           package: .
